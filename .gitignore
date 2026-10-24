@@ -1,0 +1,6 @@
+# Archivos temporales de Visual Studio
+.vs/
+
+# Carpetas de compilación de C#
+**/bin/
+**/obj/
