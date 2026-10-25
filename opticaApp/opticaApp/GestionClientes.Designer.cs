@@ -28,18 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            panel1 = new Panel();
+            txtBuscar = new TextBox();
+            dgvClientes = new DataGridView();
+            panel2 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txtBuscar);
+            panel1.Controls.Add(dgvClientes);
+            panel1.Location = new Point(68, 118);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1028, 600);
+            panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBuscar.Location = new Point(53, 36);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Nombre o Apellido";
+            txtBuscar.Size = new Size(921, 29);
+            txtBuscar.TabIndex = 1;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // dgvClientes
+            // 
+            dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClientes.BackgroundColor = Color.White;
+            dgvClientes.BorderStyle = BorderStyle.None;
+            dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvClientes.ColumnHeadersHeight = 35;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvClientes.EnableHeadersVisualStyles = false;
+            dgvClientes.GridColor = SystemColors.ControlLight;
+            dgvClientes.Location = new Point(53, 95);
+            dgvClientes.MultiSelect = false;
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
+            dgvClientes.RowHeadersVisible = false;
+            dgvClientes.RowTemplate.Height = 30;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.Size = new Size(921, 482);
+            dgvClientes.TabIndex = 0;
+            dgvClientes.CellContentClick += dgvClientes_CellContentClick;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(32, 78, 128);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(68, 12);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1028, 110);
+            panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(192, 61);
+            label2.Name = "label2";
+            label2.Size = new Size(354, 25);
+            label2.TabIndex = 1;
+            label2.Text = "Administra la informacion de los clientes";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(192, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(233, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Gestion de Clientes";
+            label1.Click += label1_Click;
             // 
             // GestionClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1161, 744);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Name = "GestionClientes";
             Text = "GestionClientes";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private Panel panel2;
+        private DataGridView dgvClientes;
+        private Label label1;
+        private Label label2;
+        private TextBox txtBuscar;
     }
 }
