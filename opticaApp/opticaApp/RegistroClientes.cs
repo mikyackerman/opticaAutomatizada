@@ -63,6 +63,13 @@ namespace opticaApp
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+
+                txtNombre.Clear();
+                txtApellido.Clear();
+                txtCorreo.Clear();
+                txtTelefono.Clear();
+
+                dateTimePicker1.Value = DateTime.Today;
             }
             catch (MySqlException ex)
             {

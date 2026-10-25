@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+    
 
 namespace opticaApp
 {
@@ -13,7 +12,7 @@ namespace opticaApp
     {
         private DataTable tablaClientes;
 
-        string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
+        string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=;";
         public GestionClientes()
         {
             InitializeComponent();
@@ -28,7 +27,8 @@ namespace opticaApp
 
                 string sql = @"SELECT cliente_id, nombre, apellido,
                               fecha_nacimiento, correo, telefono
-                       FROM clientes";
+                       FROM clientes
+                       ORDER BY fecha_registro DESC";
 
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn))
                 {
@@ -37,6 +37,7 @@ namespace opticaApp
                     adapter.Fill(tablaClientes);
 
                     dgvClientes.DataSource = tablaClientes;
+                    CrearColumnasAcciones();
 
                     foreach (DataGridViewColumn columna in dgvClientes.Columns)
                     {
@@ -57,13 +58,33 @@ namespace opticaApp
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void CrearColumnasAcciones()
         {
 
-        }
+            // Evitar crear las columnas más de una vez
+            if (dgvClientes.Columns["colModificar"] != null)
+                return;
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            DataGridViewButtonColumn modificar = new DataGridViewButtonColumn();
+            modificar.Name = "colModificar";
+            modificar.HeaderText = "Modificar";
+            modificar.Text = "✏️";
+            modificar.UseColumnTextForButtonValue = true;
+            modificar.FlatStyle = FlatStyle.Flat;
+            modificar.DefaultCellStyle.BackColor = Color.White;
+            dgvClientes.Columns.Add(modificar);
+
+            DataGridViewButtonColumn eliminar = new DataGridViewButtonColumn();
+            eliminar.Name = "colEliminar";
+            eliminar.HeaderText = "Eliminar";
+            eliminar.Text = "🗑️";
+            eliminar.UseColumnTextForButtonValue = true;
+            eliminar.FlatStyle = FlatStyle.Flat;
+            eliminar.DefaultCellStyle.BackColor = Color.White;
+            dgvClientes.Columns.Add(eliminar);
+
+            dgvClientes.Columns["colModificar"].Width = 50;
+            dgvClientes.Columns["colEliminar"].Width = 50;
 
         }
 
@@ -79,14 +100,14 @@ namespace opticaApp
               $"apellido LIKE '%{busqueda}%'";
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
+            RegistroClientes formulario = new RegistroClientes();
 
+            formulario.ShowDialog();
+
+            CargarClientes();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

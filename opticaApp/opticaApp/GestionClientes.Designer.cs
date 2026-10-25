@@ -31,6 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            btnAgregarCliente = new Button();
             txtBuscar = new TextBox();
             dgvClientes = new DataGridView();
             panel2 = new Panel();
@@ -45,21 +46,37 @@
             // 
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(btnAgregarCliente);
             panel1.Controls.Add(txtBuscar);
             panel1.Controls.Add(dgvClientes);
             panel1.Location = new Point(68, 118);
             panel1.Name = "panel1";
             panel1.Size = new Size(1028, 600);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            // 
+            // btnAgregarCliente
+            // 
+            btnAgregarCliente.BackColor = Color.FromArgb(32, 78, 128);
+            btnAgregarCliente.Cursor = Cursors.Hand;
+            btnAgregarCliente.FlatAppearance.BorderSize = 0;
+            btnAgregarCliente.FlatStyle = FlatStyle.Flat;
+            btnAgregarCliente.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAgregarCliente.ForeColor = Color.White;
+            btnAgregarCliente.Location = new Point(815, 23);
+            btnAgregarCliente.Name = "btnAgregarCliente";
+            btnAgregarCliente.Size = new Size(186, 52);
+            btnAgregarCliente.TabIndex = 2;
+            btnAgregarCliente.Text = "+Agregar Cliente";
+            btnAgregarCliente.UseVisualStyleBackColor = false;
+            btnAgregarCliente.Click += btnAgregarCliente_Click;
             // 
             // txtBuscar
             // 
             txtBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBuscar.Location = new Point(53, 36);
+            txtBuscar.Location = new Point(28, 36);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Nombre o Apellido";
-            txtBuscar.Size = new Size(921, 29);
+            txtBuscar.Size = new Size(771, 29);
             txtBuscar.TabIndex = 1;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
@@ -80,6 +97,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvClientes.ColumnHeadersHeight = 35;
+            dgvClientes.Cursor = Cursors.Hand;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -90,16 +108,15 @@
             dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
             dgvClientes.EnableHeadersVisualStyles = false;
             dgvClientes.GridColor = SystemColors.ControlLight;
-            dgvClientes.Location = new Point(53, 95);
+            dgvClientes.Location = new Point(28, 89);
             dgvClientes.MultiSelect = false;
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.RowTemplate.Height = 30;
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvClientes.Size = new Size(921, 482);
+            dgvClientes.Size = new Size(973, 482);
             dgvClientes.TabIndex = 0;
-            dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
             // panel2
             // 
@@ -110,7 +127,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1028, 110);
             panel2.TabIndex = 1;
-            panel2.Paint += panel2_Paint;
             // 
             // label2
             // 
@@ -133,7 +149,6 @@
             label1.Size = new Size(233, 32);
             label1.TabIndex = 0;
             label1.Text = "Gestion de Clientes";
-            label1.Click += label1_Click;
             // 
             // GestionClientes
             // 
@@ -160,5 +175,6 @@
         private Label label1;
         private Label label2;
         private TextBox txtBuscar;
+        private Button btnAgregarCliente;
     }
 }
