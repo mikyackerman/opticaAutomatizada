@@ -30,16 +30,19 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionClientes));
             panel1 = new Panel();
             btnAgregarCliente = new Button();
             txtBuscar = new TextBox();
             dgvClientes = new DataGridView();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -56,7 +59,7 @@
             // 
             // btnAgregarCliente
             // 
-            btnAgregarCliente.BackColor = Color.FromArgb(32, 78, 128);
+            btnAgregarCliente.BackColor = Color.FromArgb(36, 81, 87);
             btnAgregarCliente.Cursor = Cursors.Hand;
             btnAgregarCliente.FlatAppearance.BorderSize = 0;
             btnAgregarCliente.FlatStyle = FlatStyle.Flat;
@@ -83,6 +86,7 @@
             // dgvClientes
             // 
             dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AllowUserToResizeRows = false;
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvClientes.BackgroundColor = Color.White;
             dgvClientes.BorderStyle = BorderStyle.None;
@@ -121,7 +125,8 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(32, 78, 128);
+            panel2.BackColor = Color.FromArgb(36, 81, 87);
+            panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(68, 12);
@@ -129,42 +134,58 @@
             panel2.Size = new Size(1028, 110);
             panel2.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, -44);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(206, 205);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(192, 61);
+            label2.Location = new Point(202, 61);
             label2.Name = "label2";
             label2.Size = new Size(354, 25);
             label2.TabIndex = 1;
             label2.Text = "Administra la informacion de los clientes";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(192, 18);
+            label1.Location = new Point(202, 24);
             label1.Name = "label1";
-            label1.Size = new Size(233, 32);
+            label1.Size = new Size(263, 37);
             label1.TabIndex = 0;
             label1.Text = "Gestion de Clientes";
             // 
             // GestionClientes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1161, 744);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "GestionClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GestionClientes";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -177,5 +198,6 @@
         private Label label2;
         private TextBox txtBuscar;
         private Button btnAgregarCliente;
+        private PictureBox pictureBox1;
     }
 }

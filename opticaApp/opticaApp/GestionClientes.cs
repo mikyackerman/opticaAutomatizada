@@ -108,14 +108,18 @@ namespace opticaApp
             CargarClientes();
         }
 
+
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.RowIndex < 0)
+            // Ignorar encabezados y clics que no corresponden a una fila
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
+            // Obtener el nombre de la columna pulsada
+            string columna = dgvClientes.Columns[e.ColumnIndex].Name;
 
-            if (dgvClientes.Columns[e.ColumnIndex].Name == "colModificar")
+            // MODIFICAR CLIENTE
+            if (columna == "colModificar")
             {
                 int clienteId = Convert.ToInt32(
                     dgvClientes.Rows[e.RowIndex].Cells["cliente_id"].Value
@@ -126,6 +130,86 @@ namespace opticaApp
 
                 CargarClientes();
             }
+
+            // ELIMINAR CLIENTE
+            else if (columna == "colEliminar")
+            {
+                int clienteId = Convert.ToInt32(
+                    dgvClientes.Rows[e.RowIndex].Cells["cliente_id"].Value
+                );
+
+                DialogResult respuesta = MessageBox.Show(
+                    "¿Estás seguro de que deseas eliminar este cliente?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (MySqlConnection conn = new MySqlConnection(conexion))
+                        {
+                            conn.Open();
+
+                            string sql = @"DELETE FROM clientes
+                                   WHERE cliente_id = @id";
+
+                            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", clienteId);
+
+                                int filasEliminadas = cmd.ExecuteNonQuery();
+
+                                if (filasEliminadas > 0)
+                                {
+                                    MessageBox.Show(
+                                        "Cliente eliminado correctamente."
+                                    );
+                                }
+                                else
+                                {
+                                    MessageBox.Show(
+                                        "No se encontró el cliente para eliminar."
+                                    );
+                                }
+                            }
+                        }
+
+                        CargarClientes();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(
+                            "No se pudo eliminar el cliente. Puede que existan " +
+                            "registros relacionados con él.\n\n" + ex.Message,
+                            "Error de base de datos",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(
+                            "Ocurrió un error: " + ex.Message,
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
