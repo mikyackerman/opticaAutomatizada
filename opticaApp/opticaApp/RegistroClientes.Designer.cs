@@ -165,15 +165,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(927, 100);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
-            // Form1
+            // RegistroClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1115, 703);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form1";
+            Name = "RegistroClientes";
             Text = "Form1";
             Load += Form1_Load;
             panel1.ResumeLayout(false);

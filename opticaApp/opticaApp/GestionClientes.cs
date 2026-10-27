@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -109,5 +108,24 @@ namespace opticaApp
             CargarClientes();
         }
 
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex < 0)
+                return;
+
+
+            if (dgvClientes.Columns[e.ColumnIndex].Name == "colModificar")
+            {
+                int clienteId = Convert.ToInt32(
+                    dgvClientes.Rows[e.RowIndex].Cells["cliente_id"].Value
+                );
+
+                RegistroClientes formulario = new RegistroClientes(clienteId);
+                formulario.ShowDialog();
+
+                CargarClientes();
+            }
+        }
     }
 }
