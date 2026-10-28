@@ -7,7 +7,7 @@ namespace opticaApp
 {
     public partial class RegistroClientes : Form
     {
-        private string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
+        private string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=;";
         private int? clienteId = null;
 
         public RegistroClientes()
@@ -187,6 +187,54 @@ namespace opticaApp
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            // Si estamos modificando, confirmar antes de borrar los campos
+            if (clienteId != null)
+            {
+                DialogResult resultado = MessageBox.Show(
+                    "Estás modificando un cliente existente. ¿Deseas limpiar todos los campos?",
+                    "Confirmar limpieza",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (resultado != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+
+            txtNombre.Clear();
+
+            txtApellido.Clear();
+
+            txtCorreo.Clear();
+
+            txtTelefono.Clear();
+
+
+            dateTimePicker1.Value = DateTime.Today;
+
+            txtNombre.Focus();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
         {
 
         }
