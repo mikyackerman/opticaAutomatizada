@@ -70,5 +70,18 @@ namespace opticaApp
         {
 
         }
+
+        private void btnVerObservaciones_Click(object sender, EventArgs e)
+        {
+            using (Observaciones formulario = new Observaciones(clienteId))
+            {
+                formulario.ShowDialog();
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,11 +31,10 @@ namespace opticaApp
         {
             // Validar campos obligatorios
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtCorreo.Text))
+                string.IsNullOrWhiteSpace(txtApellido.Text))
             {
                 MessageBox.Show(
-                    "Completa el nombre, apellido y correo electrónico.",
+                    "Completa el nombre y apellido.",
                     "Campos obligatorios",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -77,7 +76,12 @@ namespace opticaApp
                         cmd.Parameters.AddWithValue("@nombre", txtNombre.Text.Trim());
                         cmd.Parameters.AddWithValue("@apellido", txtApellido.Text.Trim());
                         cmd.Parameters.AddWithValue("@fecha", dateTimePicker1.Value.Date);
-                        cmd.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
+                            
+                        cmd.Parameters.AddWithValue("@correo",
+                            string.IsNullOrWhiteSpace(txtCorreo.Text)
+                                ? DBNull.Value
+                                : (object)txtCorreo.Text.Trim());
+
                         cmd.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
 
                         if (clienteId != null)
@@ -100,21 +104,7 @@ namespace opticaApp
                      MessageBoxIcon.Information
                         );
 
-                // Si estamos modificando un cliente
-                if (clienteId != null)
-                {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    // Si es un cliente nuevo, limpiar los campos
-                    txtNombre.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtTelefono.Clear();
-                    dateTimePicker1.Value = DateTime.Today;
-                }
+                this.Close();
             }
             catch (MySqlException ex)
             {

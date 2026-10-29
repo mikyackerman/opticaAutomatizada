@@ -56,6 +56,7 @@
             // 
             // panel1
             // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(btnVolverPacientes);
             panel1.Controls.Add(pnlPedidos);
             panel1.Controls.Add(pnlAgudezaVisual);
@@ -81,6 +82,7 @@
             // 
             // pnlPedidos
             // 
+            pnlPedidos.BackColor = Color.White;
             pnlPedidos.BorderStyle = BorderStyle.FixedSingle;
             pnlPedidos.Controls.Add(label6);
             pnlPedidos.Controls.Add(label3);
@@ -124,6 +126,7 @@
             // 
             // pnlAgudezaVisual
             // 
+            pnlAgudezaVisual.BackColor = Color.White;
             pnlAgudezaVisual.BorderStyle = BorderStyle.FixedSingle;
             pnlAgudezaVisual.Controls.Add(label5);
             pnlAgudezaVisual.Controls.Add(label2);
@@ -167,6 +170,7 @@
             // 
             // pnlObservaciones
             // 
+            pnlObservaciones.BackColor = Color.White;
             pnlObservaciones.BorderStyle = BorderStyle.FixedSingle;
             pnlObservaciones.Controls.Add(label4);
             pnlObservaciones.Controls.Add(label1);
@@ -208,6 +212,7 @@
             btnVerObservaciones.TabIndex = 0;
             btnVerObservaciones.Text = "Ver detalles →";
             btnVerObservaciones.UseVisualStyleBackColor = false;
+            btnVerObservaciones.Click += btnVerObservaciones_Click;
             // 
             // panel2
             // 
@@ -241,6 +246,7 @@
             label7.Size = new Size(284, 37);
             label7.TabIndex = 1;
             label7.Text = "Detalles del Paciente";
+            label7.Click += label7_Click;
             // 
             // pictureBox1
             // 
@@ -254,8 +260,8 @@
             // 
             // DetallesCliente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1161, 744);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -297,10 +303,9 @@
         private Label label4;
         private Label label7;
         private Button btnVolverPacientes;
-        private Label lblDatos;
         private Button btnVerObservaciones;
         private Button btnVerAgudeza;
         private Button btnVerPedidos;
-
+        private Label lblDatos;
     }
 }
