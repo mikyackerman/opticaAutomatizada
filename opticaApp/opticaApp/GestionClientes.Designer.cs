@@ -122,6 +122,7 @@
             dgvClientes.Size = new Size(973, 482);
             dgvClientes.TabIndex = 0;
             dgvClientes.CellContentClick += dgvClientes_CellContentClick;
+            dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;
             // 
             // panel2
             // 
@@ -164,9 +165,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(202, 13);
             label1.Name = "label1";
-            label1.Size = new Size(263, 37);
+            label1.Size = new Size(282, 37);
             label1.TabIndex = 0;
-            label1.Text = "Gestion de Clientes";
+            label1.Text = "Gestion de Pacientes";
             // 
             // GestionClientes
             // 

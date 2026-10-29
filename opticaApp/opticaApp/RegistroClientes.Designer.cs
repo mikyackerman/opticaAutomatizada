@@ -255,9 +255,9 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(202, 14);
             label6.Name = "label6";
-            label6.Size = new Size(273, 37);
+            label6.Size = new Size(292, 37);
             label6.TabIndex = 4;
-            label6.Text = "Registro de Clientes";
+            label6.Text = "Registro de Pacientes";
             // 
             // pictureBox1
             // 

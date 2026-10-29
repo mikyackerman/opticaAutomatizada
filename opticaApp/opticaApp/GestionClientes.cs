@@ -211,5 +211,21 @@ namespace opticaApp
         {
 
         }
+
+        private void dgvClientes_CellDoubleClick(
+            object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            int clienteId = Convert.ToInt32(
+                dgvClientes.Rows[e.RowIndex].Cells["cliente_id"].Value
+            );
+
+            using (DetallesCliente formulario = new DetallesCliente(clienteId))
+            {
+                formulario.ShowDialog();
+            }
+        }
     }
 }

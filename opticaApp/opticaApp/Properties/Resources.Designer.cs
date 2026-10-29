@@ -63,9 +63,9 @@ namespace opticaApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap prismaVision2 {
+        internal static System.Drawing.Bitmap Foto_perfil_Prisma_Vision {
             get {
-                object obj = ResourceManager.GetObject("prismaVision2", resourceCulture);
+                object obj = ResourceManager.GetObject("Foto perfil Prisma Vision", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
