@@ -23,7 +23,7 @@ namespace opticaApp
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=;";
+            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
 
             string sql = @"INSERT INTO observaciones
                    (cliente_id, molestias_actuales, antecedentes_generales,

@@ -76,7 +76,7 @@
             btnVolverPacientes.Name = "btnVolverPacientes";
             btnVolverPacientes.Size = new Size(269, 50);
             btnVolverPacientes.TabIndex = 3;
-            btnVolverPacientes.Text = "← Volver a pacientes";
+            btnVolverPacientes.Text = "s";
             btnVolverPacientes.UseVisualStyleBackColor = false;
             btnVolverPacientes.Click += btnVolverPacientes_Click;
             // 
@@ -167,6 +167,7 @@
             btnVerAgudeza.TabIndex = 0;
             btnVerAgudeza.Text = "Ver detalles →";
             btnVerAgudeza.UseVisualStyleBackColor = false;
+            btnVerAgudeza.Click += btnVerAgudeza_Click;
             // 
             // pnlObservaciones
             // 

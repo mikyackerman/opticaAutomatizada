@@ -11,7 +11,7 @@ namespace opticaApp
     {
         private DataTable tablaClientes;
 
-        string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=;";
+        string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
         public GestionClientes()
         {
             InitializeComponent();

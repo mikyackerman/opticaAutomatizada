@@ -22,7 +22,7 @@ namespace opticaApp
 
         private void CargarDatosCliente()
         {
-            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=;";
+            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
 
             using (MySqlConnection conn = new MySqlConnection(conexion))
             {
@@ -82,6 +82,12 @@ namespace opticaApp
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVerAgudeza_Click(object sender, EventArgs e)
+        {
+            AgudezaVisual formulario = new AgudezaVisual(clienteId);
+            formulario.ShowDialog();
         }
     }
 }
