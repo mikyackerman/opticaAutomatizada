@@ -66,6 +66,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1028, 710);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // btnCancelar
             // 
@@ -141,7 +142,7 @@
             txtNotasAdicionales.Multiline = true;
             txtNotasAdicionales.Name = "txtNotasAdicionales";
             txtNotasAdicionales.PlaceholderText = "Comentarios relevantes para la atencion...";
-            txtNotasAdicionales.Size = new Size(969, 90);
+            txtNotasAdicionales.Size = new Size(969, 65);
             txtNotasAdicionales.TabIndex = 5;
             // 
             // txtAntecedentesOculares
@@ -150,7 +151,7 @@
             txtAntecedentesOculares.Multiline = true;
             txtAntecedentesOculares.Name = "txtAntecedentesOculares";
             txtAntecedentesOculares.PlaceholderText = "Enfermedades oculares previas, cirugias, lesiones o tratamientos informados... ";
-            txtAntecedentesOculares.Size = new Size(969, 90);
+            txtAntecedentesOculares.Size = new Size(969, 65);
             txtAntecedentesOculares.TabIndex = 4;
             // 
             // txtAntecedentesGenerales
@@ -159,7 +160,7 @@
             txtAntecedentesGenerales.Multiline = true;
             txtAntecedentesGenerales.Name = "txtAntecedentesGenerales";
             txtAntecedentesGenerales.PlaceholderText = "Antecedentes medicos relevantes, medicamentos y alergias que el cliente informe...";
-            txtAntecedentesGenerales.Size = new Size(969, 90);
+            txtAntecedentesGenerales.Size = new Size(969, 65);
             txtAntecedentesGenerales.TabIndex = 3;
             // 
             // txtMolestias
@@ -168,7 +169,7 @@
             txtMolestias.Multiline = true;
             txtMolestias.Name = "txtMolestias";
             txtMolestias.PlaceholderText = "Describe las molestias que refiere el cliente, desde cuando y que ojo, si corresponde...";
-            txtMolestias.Size = new Size(969, 90);
+            txtMolestias.Size = new Size(969, 65);
             txtMolestias.TabIndex = 2;
             // 
             // panel2

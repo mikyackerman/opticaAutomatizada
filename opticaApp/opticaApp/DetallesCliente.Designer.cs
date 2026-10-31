@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            btnVolverPacientes = new Button();
+            panel3 = new Panel();
+            label9 = new Label();
+            label8 = new Label();
+            btnVerHistorial = new Button();
             pnlPedidos = new Panel();
             label6 = new Label();
             label3 = new Label();
@@ -47,6 +50,7 @@
             label7 = new Label();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             pnlPedidos.SuspendLayout();
             pnlAgudezaVisual.SuspendLayout();
             pnlObservaciones.SuspendLayout();
@@ -57,7 +61,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(btnVolverPacientes);
+            panel1.Controls.Add(panel3);
             panel1.Controls.Add(pnlPedidos);
             panel1.Controls.Add(pnlAgudezaVisual);
             panel1.Controls.Add(pnlObservaciones);
@@ -65,20 +69,52 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1028, 710);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
-            // btnVolverPacientes
+            // panel3
             // 
-            btnVolverPacientes.BackColor = Color.FromArgb(36, 81, 87);
-            btnVolverPacientes.FlatStyle = FlatStyle.Flat;
-            btnVolverPacientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverPacientes.ForeColor = Color.White;
-            btnVolverPacientes.Location = new Point(632, 535);
-            btnVolverPacientes.Name = "btnVolverPacientes";
-            btnVolverPacientes.Size = new Size(269, 50);
-            btnVolverPacientes.TabIndex = 3;
-            btnVolverPacientes.Text = "s";
-            btnVolverPacientes.UseVisualStyleBackColor = false;
-            btnVolverPacientes.Click += btnVolverPacientes_Click;
+            panel3.BackColor = Color.White;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(label9);
+            panel3.Controls.Add(label8);
+            panel3.Controls.Add(btnVerHistorial);
+            panel3.Location = new Point(542, 430);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(450, 250);
+            panel3.TabIndex = 2;
+            // 
+            // label9
+            // 
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(44, 92);
+            label9.Name = "label9";
+            label9.Size = new Size(332, 46);
+            label9.TabIndex = 3;
+            label9.Text = "Consulta examenes, diagnosticos y compras anteriores";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(44, 43);
+            label8.Name = "label8";
+            label8.Size = new Size(221, 30);
+            label8.TabIndex = 3;
+            label8.Text = "Historial del paciente";
+            // 
+            // btnVerHistorial
+            // 
+            btnVerHistorial.BackColor = Color.FromArgb(36, 81, 87);
+            btnVerHistorial.FlatStyle = FlatStyle.Flat;
+            btnVerHistorial.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerHistorial.ForeColor = Color.White;
+            btnVerHistorial.Location = new Point(-1, 200);
+            btnVerHistorial.Name = "btnVerHistorial";
+            btnVerHistorial.Size = new Size(451, 50);
+            btnVerHistorial.TabIndex = 0;
+            btnVerHistorial.Text = "Ver detalles →";
+            btnVerHistorial.UseVisualStyleBackColor = false;
+            btnVerHistorial.Click += btnVerHistorial_Click;
             // 
             // pnlPedidos
             // 
@@ -123,6 +159,7 @@
             btnVerPedidos.TabIndex = 0;
             btnVerPedidos.Text = "Ver detalles →";
             btnVerPedidos.UseVisualStyleBackColor = false;
+            btnVerPedidos.Click += btnVerPedidos_Click;
             // 
             // pnlAgudezaVisual
             // 
@@ -272,6 +309,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Detalles del cliente";
             panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             pnlPedidos.ResumeLayout(false);
             pnlPedidos.PerformLayout();
             pnlAgudezaVisual.ResumeLayout(false);
@@ -303,10 +342,13 @@
         private Label label5;
         private Label label4;
         private Label label7;
-        private Button btnVolverPacientes;
         private Button btnVerObservaciones;
         private Button btnVerAgudeza;
         private Button btnVerPedidos;
         private Label lblDatos;
+        private Panel panel3;
+        private Button btnVerHistorial;
+        private Label label9;
+        private Label label8;
     }
 }

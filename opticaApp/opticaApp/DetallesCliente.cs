@@ -22,7 +22,7 @@ namespace opticaApp
 
         private void CargarDatosCliente()
         {
-            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
+            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=;";
 
             using (MySqlConnection conn = new MySqlConnection(conexion))
             {
@@ -63,7 +63,7 @@ namespace opticaApp
 
         private void btnVolverPacientes_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -88,6 +88,22 @@ namespace opticaApp
         {
             AgudezaVisual formulario = new AgudezaVisual(clienteId);
             formulario.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnVerHistorial_Click(object sender, EventArgs e)
+        {
+            HistorialPaciente formulario = new HistorialPaciente(clienteId);
+            formulario.ShowDialog();
+        }
+
+        private void btnVerPedidos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

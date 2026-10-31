@@ -7,7 +7,7 @@ namespace opticaApp
 {
     public partial class RegistroClientes : Form
     {
-        private string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
+        private string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=;";
         private int? clienteId = null;
 
         public RegistroClientes()

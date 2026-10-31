@@ -783,6 +783,7 @@
             MaximizeBox = false;
             Name = "AgudezaVisual";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agudeza Visual";
             Load += AgudezaVisual_Load;
             lblNombre.ResumeLayout(false);
             lblNombre.PerformLayout();

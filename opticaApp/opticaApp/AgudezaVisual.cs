@@ -89,7 +89,7 @@ namespace opticaApp
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=cagadamierda123;";
+            string conexion = "Server=localhost;Database=optica_test;Uid=root;Pwd=";
 
             try
             {
